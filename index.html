@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Arrow: better dates and times for Python &mdash; Arrow 0.4.0 documentation</title>
+    <title>Arrow: better dates and times for Python &mdash; Arrow 0.4.3 documentation</title>
     
     <link rel="stylesheet" href="_static/f6.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Arrow 0.4.0 documentation" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
+    <link rel="top" title="Arrow 0.4.3 documentation" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
 <meta name="description" content="Arrow:  better dates and times for Python.  Arrow is a Python library that provides a sensible, intelligent way of creating, manipulating, formatting and converting dates and times."></meta>
   </head>
   <body>
@@ -194,6 +194,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="s">&#39;US/Pacific&#39;</span><span class="p">)</span>
 <span class="go">&lt;Arrow [2013-05-06T21:24:32.736373-07:00]&gt;</span>
 
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dateutil</span> <span class="nn">impot</span> <span class="nn">tz</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">tz</span><span class="o">.</span><span class="n">gettz</span><span class="p">(</span><span class="s">&#39;US/Pacific&#39;</span><span class="p">))</span>
 <span class="go">&lt;Arrow [2013-05-06T21:24:41.129262-07:00]&gt;</span>
 
@@ -337,7 +338,7 @@
 <span class="go">&lt;Arrow [2013-05-07T05:59:59.999999+00:00]&gt;</span>
 </pre></div>
 </div>
-<p>You can also get a range of timepans:</p>
+<p>You can also get a range of timespans:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">arrow</span><span class="o">.</span><span class="n">Arrow</span><span class="o">.</span><span class="n">span_range</span><span class="p">(</span><span class="s">&#39;hour&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
@@ -450,7 +451,7 @@
 <td>D</td>
 <td>1, 2, 3 ... 30, 31</td>
 </tr>
-<tr class="row-even"><td><strong>Day of Month</strong></td>
+<tr class="row-even"><td><strong>Day of Week</strong></td>
 <td>dddd</td>
 <td>Monday, Tuesday, Wednesday ...</td>
 </tr>
@@ -808,6 +809,12 @@ start, and with both to cap a range at a maximum # of results.</p>
 <dt id="arrow.arrow.Arrow.timestamp">
 <tt class="descname">timestamp</tt><a class="headerlink" href="#arrow.arrow.Arrow.timestamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a timestamp representation of the <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow.arrow.Arrow"><tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="arrow.arrow.Arrow.float_timestamp">
+<tt class="descname">float_timestamp</tt><a class="headerlink" href="#arrow.arrow.Arrow.float_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a floating-point representation of the <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow.arrow.Arrow"><tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt></a> object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1168,7 +1175,13 @@ Defaults to <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow
 </div>
 <p><strong>None</strong> to also get current UTC time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
-<span class="go">&lt;Arrow [2013-05-08T05:51:43.316458+00:00]&gt;      </span>
+<span class="go">&lt;Arrow [2013-05-08T05:51:43.316458+00:00]&gt;</span>
+</pre></div>
+</div>
+<p><strong>One</strong> <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow.arrow.Arrow"><tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt></a> object, to get a copy.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arw</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">arw</span><span class="p">)</span>
+<span class="go">&lt;Arrow [2013-10-23T15:21:54.354846+00:00]&gt;</span>
 </pre></div>
 </div>
 <p><strong>One</strong> <tt class="docutils literal"><span class="pre">str</span></tt>, <tt class="docutils literal"><span class="pre">float</span></tt>, or <tt class="docutils literal"><span class="pre">int</span></tt>, convertible to a floating-point timestamp, to get that timestamp in UTC:</p>
@@ -1205,13 +1218,28 @@ Defaults to <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow
 <span class="go">&lt;Arrow [2013-05-05T00:00:00-07:00]&gt;</span>
 </pre></div>
 </div>
+<p><strong>One</strong> naive <tt class="docutils literal"><span class="pre">date</span></tt>, to get that date in UTC:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="go">&lt;Arrow [2013-05-05T00:00:00+00:00]&gt;</span>
+</pre></div>
+</div>
 <p><strong>Two</strong> arguments, a naive or aware <tt class="docutils literal"><span class="pre">datetime</span></tt>, and a timezone expression (as above):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s">&#39;US/Pacific&#39;</span><span class="p">)</span>
 <span class="go">&lt;Arrow [2013-05-05T00:00:00-07:00]&gt;</span>
 </pre></div>
 </div>
+<p><strong>Two</strong> arguments, a naive <tt class="docutils literal"><span class="pre">date</span></tt>, and a timezone expression (as above):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s">&#39;US/Pacific&#39;</span><span class="p">)</span>
+<span class="go">&lt;Arrow [2013-05-05T00:00:00-07:00]&gt;</span>
+</pre></div>
+</div>
 <p><strong>Two</strong> arguments, both <tt class="docutils literal"><span class="pre">str</span></tt>, to parse the first according to the format of the second:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;2013-05-05 12:30:45&#39;</span><span class="p">,</span> <span class="s">&#39;YYYY-MM-DD HH:mm:ss&#39;</span><span class="p">)</span>
+<span class="go">&lt;Arrow [2013-05-05T12:30:45+00:00]&gt;</span>
+</pre></div>
+</div>
+<p><strong>Two</strong> arguments, first a <tt class="docutils literal"><span class="pre">str</span></tt> to parse and second a <tt class="docutils literal"><span class="pre">list</span></tt> of formats to try:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;2013-05-05 12:30:45&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;MM/DD/YYYY&#39;</span><span class="p">,</span> <span class="s">&#39;YYYY-MM-DD HH:mm:ss&#39;</span><span class="p">])</span>
 <span class="go">&lt;Arrow [2013-05-05T12:30:45+00:00]&gt;</span>
 </pre></div>
 </div>
@@ -1296,8 +1324,8 @@ methods for use as a module API.</p>
 <dl class="function">
 <dt id="arrow.api.now">
 <tt class="descclassname">arrow.api.</tt><tt class="descname">now</tt><big>(</big><em>tz=None</em><big>)</big><a class="headerlink" href="#arrow.api.now" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements the default <tt class="xref py py-class docutils literal"><span class="pre">ArrowFactory</span> <span class="pre">&lt;arrow.factory.ArrowFactory&gt;</span>
-<span class="pre">``now`</span></tt> method.</p>
+<dd><p>Implements the default <a class="reference internal" href="#arrow.factory.ArrowFactory" title="arrow.factory.ArrowFactory"><tt class="xref py py-class docutils literal"><span class="pre">ArrowFactory</span></tt></a>
+<tt class="docutils literal"><span class="pre">now</span></tt> method.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1425,6 +1453,24 @@ to an inpute locale name.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="arrow.locales.Locale.meridian">
+<tt class="descname">meridian</tt><big>(</big><em>hour</em>, <em>token</em><big>)</big><a class="headerlink" href="#arrow.locales.Locale.meridian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the meridian indicator for a specified hour and format token.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hour</strong> &#8211; the <tt class="docutils literal"><span class="pre">int</span></tt> hour of the day.</li>
+<li><strong>token</strong> &#8211; the format token.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -1443,7 +1489,7 @@ to an inpute locale name.</p>
         <li class="right" style="margin-right: 10px">
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a></li>
-        <li><a href="#">Arrow 0.4.0 documentation</a> &raquo;</li> 
+        <li><a href="#">Arrow 0.4.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
