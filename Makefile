@@ -14,6 +14,9 @@ test:
 docs:
 	touch docs/index.rst
 	cd docs; sphinx-build -b html -d _build/doctrees . _build/html
+	rm -rf docs/html
+	cp -R docs/_build/html docs/html
+	rm -rf docs/_build
 
 clean:
 	rm -rf local
