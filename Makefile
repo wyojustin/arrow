@@ -1,33 +1,19 @@
 .PHONY: auto build test docs clean
 
-auto: build27
+auto: build
 
-build27:
-	virtualenv local --python=python2.7
-	local/bin/pip install --use-mirrors -r requirements.txt
-
-build26:
-	virtualenv local --python=python2.6
-	local/bin/pip install --use-mirrors -r requirements.txt
-	local/bin/pip install --use-mirrors -r requirements26.txt
-
-build33:
-	virtualenv local --python=python3.3
-	local/bin/pip install --use-mirrors -r requirements.txt
-
-build34:
-	virtualenv local --python=python3.4
-	local/bin/pip install --use-mirrors -r requirements.txt
+build:
+	virtualenv local
+	. local/bin/activate
+	local/bin/pip install -r requirements.txt
+	local/bin/pip install -r requirements-dev.txt
 
 test:
-	rm -f .coverage
-	. local/bin/activate && nosetests --all-modules --with-coverage arrow tests
+	tox -e py27
 
 docs:
 	touch docs/index.rst
-	cd docs; make html
-	rm -rf docs/html
-	cp -R docs/_build/html docs/html
+	cd docs; sphinx-build -b html -d _build/doctrees . _build/html
 
 clean:
 	rm -rf local
