@@ -26,6 +26,8 @@ test:
 docs:
 	touch docs/index.rst
 	cd docs; make html
+	rm -rf docs/html
+	cp -R docs/_build/html docs/html
 
 clean:
 	rm -rf local

@@ -1,4 +1,4 @@
-*.pyc
+*pyc
 *.egg-info
 
 .coverage
@@ -8,4 +8,5 @@ local/
 dist/
 docs/_build/
 .idea
+.tox
 .DS_Store
