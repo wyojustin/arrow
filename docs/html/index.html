@@ -1,43 +1,62 @@
+
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Arrow: better dates and times for Python &mdash; Arrow 0.4.4 documentation</title>
+  
 
+  
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
     
-    <title>Arrow: better dates and times for Python &mdash; Arrow 0.4.4 documentation</title>
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Arrow 0.4.4 documentation" href="#"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
     
-    <link rel="stylesheet" href="_static/f6.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.4.4',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Arrow 0.4.4 documentation" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
-<meta name="description" content="Arrow:  better dates and times for Python.  Arrow is a Python library that provides a sensible, intelligent way of creating, manipulating, formatting and converting dates and times."></meta>
-  </head>
-  <body>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-<a href="https://github.com/crsmithdev/arrow"><img style="position: absolute; top: 0; right: 0; border: 0;" 
-    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="#" class="fa fa-home"> Arrow</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
 
-<h2><a style="font-size: .75em;"href="https://github.com/crsmithdev/arrow">github.com/crsmithdev/arrow</a></h2>
-<iframe src="http://ghbtns.com/github-btn.html?user=crsmithdev&repo=arrow&type=watch&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="150" height="40"></iframe>
-
-
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <!-- Local TOC -->
+            <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Arrow:  better dates and times for Python</a><ul>
 <li><a class="reference internal" href="#what">What?</a></li>
 <li><a class="reference internal" href="#why">Why?</a></li>
@@ -50,9 +69,7 @@
 <li><a class="reference internal" href="#format">Format</a></li>
 <li><a class="reference internal" href="#convert">Convert</a></li>
 <li><a class="reference internal" href="#humanize">Humanize</a></li>
-<li><a class="reference internal" href="#ranges-spans">Ranges &amp; spans</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#ranges-spans">Ranges &amp; spans</a></li>
 <li><a class="reference internal" href="#factories">Factories</a></li>
 <li><a class="reference internal" href="#tokens">Tokens</a></li>
 </ul>
@@ -67,37 +84,73 @@
 </ul>
 </li>
 </ul>
-
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
+        
       </div>
+      &nbsp;
+    </nav>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Arrow</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Arrow:  better dates and times for Python</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
             
   <div class="section" id="arrow-better-dates-and-times-for-python">
 <h1>Arrow:  better dates and times for Python<a class="headerlink" href="#arrow-better-dates-and-times-for-python" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#what" id="id1">What?</a></li>
+<li><a class="reference internal" href="#why" id="id2">Why?</a></li>
+<li><a class="reference internal" href="#features" id="id3">Features</a></li>
+<li><a class="reference internal" href="#quickstart" id="id4">Quickstart</a></li>
+<li><a class="reference internal" href="#user-s-guide" id="id5">User&#8217;s Guide</a><ul>
+<li><a class="reference internal" href="#creation" id="id6">Creation</a></li>
+<li><a class="reference internal" href="#properties" id="id7">Properties</a></li>
+<li><a class="reference internal" href="#replace-shift" id="id8">Replace &amp; shift</a></li>
+<li><a class="reference internal" href="#format" id="id9">Format</a></li>
+<li><a class="reference internal" href="#convert" id="id10">Convert</a></li>
+<li><a class="reference internal" href="#humanize" id="id11">Humanize</a></li>
+<li><a class="reference internal" href="#ranges-spans" id="id12">Ranges &amp; spans</a></li>
+<li><a class="reference internal" href="#factories" id="id13">Factories</a></li>
+<li><a class="reference internal" href="#tokens" id="id14">Tokens</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-guide" id="id15">API Guide</a><ul>
+<li><a class="reference internal" href="#module-arrow.arrow" id="id16">arrow.arrow</a></li>
+<li><a class="reference internal" href="#module-arrow.factory" id="id17">arrow.factory</a></li>
+<li><a class="reference internal" href="#arrow-api" id="id18">arrow.api</a></li>
+<li><a class="reference internal" href="#module-arrow.locales" id="id19">arrow.locale</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="what">
-<h2>What?<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">What?</a><a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h2>
 <p>Arrow is a Python library that offers a sensible, human-friendly approach to creating, manipulating, formatting and converting dates, times, and timestamps.  It implements and updates the datetime type, plugging gaps in functionality, and provides an intelligent module API that supports many common creation scenarios.  Simply put, it helps you work with dates and times with fewer imports and a lot less code.</p>
 <p>Arrow is heavily inspired by <a class="reference external" href="https://github.com/timrwood/moment">moment.js</a> and <a class="reference external" href="https://github.com/kennethreitz/requests">requests</a>.</p>
 </div>
 <div class="section" id="why">
-<h2>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Why?</a><a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
 <p>Python&#8217;s standard library and some other low-level modules have near-complete date, time and time zone functionality but don&#8217;t work very well from a usability perspective:</p>
 <ul class="simple">
 <li>Too many modules:  datetime, time, calendar, dateutil, pytz and more</li>
@@ -108,7 +161,7 @@
 </ul>
 </div>
 <div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Fully implemented, drop-in replacement for datetime</li>
 <li>Supports Python 2.6, 2.7 and 3.3</li>
@@ -124,7 +177,7 @@
 </ul>
 </div>
 <div class="section" id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Quickstart</a><a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install arrow
 </pre></div>
 </div>
@@ -159,9 +212,9 @@
 </div>
 </div>
 <div class="section" id="user-s-guide">
-<h2>User&#8217;s Guide<a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">User&#8217;s Guide</a><a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="creation">
-<h3>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Creation</a><a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
 <p>Get &#8216;now&#8217; easily:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
 <span class="go">&lt;Arrow [2013-05-07T04:20:39.369271+00:00]&gt;</span>
@@ -222,7 +275,7 @@
 </div>
 </div>
 <div class="section" id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Properties</a><a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
 <p>Get a datetime or timestamp representation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
@@ -255,7 +308,7 @@
 </div>
 </div>
 <div class="section" id="replace-shift">
-<h3>Replace &amp; shift<a class="headerlink" href="#replace-shift" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Replace &amp; shift</a><a class="headerlink" href="#replace-shift" title="Permalink to this headline">¶</a></h3>
 <p>Get a new <tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt> object, with altered attributes, just as you would with a datetime:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arw</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arw</span>
@@ -272,14 +325,14 @@
 </div>
 </div>
 <div class="section" id="format">
-<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Format</a><a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;YYYY-MM-DD HH:mm:ss ZZ&#39;</span><span class="p">)</span>
 <span class="go">&#39;2013-05-07 05:23:16 -00:00&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="convert">
-<h3>Convert<a class="headerlink" href="#convert" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Convert</a><a class="headerlink" href="#convert" title="Permalink to this headline">¶</a></h3>
 <p>Convert to timezones by name or tzinfo:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">utc</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">utc</span>
@@ -302,7 +355,7 @@
 </div>
 </div>
 <div class="section" id="humanize">
-<h3>Humanize<a class="headerlink" href="#humanize" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Humanize</a><a class="headerlink" href="#humanize" title="Permalink to this headline">¶</a></h3>
 <p>Humanize relative to now:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">past</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hours</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">past</span><span class="o">.</span><span class="n">humanize</span><span class="p">()</span>
@@ -324,7 +377,7 @@
 </div>
 </div>
 <div class="section" id="ranges-spans">
-<h3>Ranges &amp; spans<a class="headerlink" href="#ranges-spans" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Ranges &amp; spans</a><a class="headerlink" href="#ranges-spans" title="Permalink to this headline">¶</a></h3>
 <p>Get the time span of any unit:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">span</span><span class="p">(</span><span class="s">&#39;hour&#39;</span><span class="p">)</span>
 <span class="go">(&lt;Arrow [2013-05-07T05:00:00+00:00]&gt;, &lt;Arrow [2013-05-07T05:59:59.999999+00:00]&gt;)</span>
@@ -364,13 +417,9 @@
 <span class="go">&lt;Arrow [2013-05-05T16:30:00+00:00]&gt;</span>
 </pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
 </div>
 <div class="section" id="factories">
-<h3>Factories<a class="headerlink" href="#factories" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Factories</a><a class="headerlink" href="#factories" title="Permalink to this headline">¶</a></h3>
 <p>Use factories to harness Arrow&#8217;s module API for a custom Arrow-derived type.  First, derive your type:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">CustomArrow</span><span class="p">(</span><span class="n">arrow</span><span class="o">.</span><span class="n">Arrow</span><span class="p">):</span>
 <span class="gp">...</span>
@@ -396,7 +445,7 @@
 </div>
 </div>
 <div class="section" id="tokens">
-<h3>Tokens<a class="headerlink" href="#tokens" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Tokens</a><a class="headerlink" href="#tokens" title="Permalink to this headline">¶</a></h3>
 <p>Use the following tokens in parsing and formatting:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -532,9 +581,9 @@
 </div>
 </div>
 <div class="section" id="api-guide">
-<h2>API Guide<a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">API Guide</a><a class="headerlink" href="#api-guide" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-arrow.arrow">
-<span id="arrow-arrow"></span><h3>arrow.arrow<a class="headerlink" href="#module-arrow.arrow" title="Permalink to this headline">¶</a></h3>
+<span id="arrow-arrow"></span><h3><a class="toc-backref" href="#id16">arrow.arrow</a><a class="headerlink" href="#module-arrow.arrow" title="Permalink to this headline">¶</a></h3>
 <p>Provides the <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow.arrow.Arrow"><tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt></a> class, an enhanced <tt class="docutils literal"><span class="pre">datetime</span></tt>
 replacement.</p>
 <dl class="class">
@@ -1143,7 +1192,7 @@ Defaults to now in the current <a class="reference internal" href="#arrow.arrow.
 
 </div>
 <div class="section" id="module-arrow.factory">
-<span id="arrow-factory"></span><h3>arrow.factory<a class="headerlink" href="#module-arrow.factory" title="Permalink to this headline">¶</a></h3>
+<span id="arrow-factory"></span><h3><a class="toc-backref" href="#id17">arrow.factory</a><a class="headerlink" href="#module-arrow.factory" title="Permalink to this headline">¶</a></h3>
 <p>Implements the <a class="reference internal" href="#arrow.factory.ArrowFactory" title="arrow.factory.ArrowFactory"><tt class="xref py py-class docutils literal"><span class="pre">ArrowFactory</span></tt></a> class,
 providing factory methods for common <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow.arrow.Arrow"><tt class="xref py py-class docutils literal"><span class="pre">Arrow</span></tt></a>
 construction scenarios.</p>
@@ -1304,7 +1353,7 @@ Defaults to <a class="reference internal" href="#arrow.arrow.Arrow" title="arrow
 
 </div>
 <div class="section" id="arrow-api">
-<h3>arrow.api<a class="headerlink" href="#arrow-api" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">arrow.api</a><a class="headerlink" href="#arrow-api" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="module-arrow.api"></span><p>Provides the default implementation of <a class="reference internal" href="#arrow.factory.ArrowFactory" title="arrow.factory.ArrowFactory"><tt class="xref py py-class docutils literal"><span class="pre">ArrowFactory</span></tt></a>
 methods for use as a module API.</p>
 <dl class="function">
@@ -1345,7 +1394,7 @@ or derived type.</p>
 
 </div>
 <div class="section" id="module-arrow.locales">
-<span id="arrow-locale"></span><h3>arrow.locale<a class="headerlink" href="#module-arrow.locales" title="Permalink to this headline">¶</a></h3>
+<span id="arrow-locale"></span><h3><a class="toc-backref" href="#id19">arrow.locale</a><a class="headerlink" href="#module-arrow.locales" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="arrow.locales.get_locale">
 <tt class="descclassname">arrow.locales.</tt><tt class="descname">get_locale</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#arrow.locales.get_locale" title="Permalink to this definition">¶</a></dt>
@@ -1479,22 +1528,58 @@ to an inpute locale name.</p>
 
 
           </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Chris Smith.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a></li>
-        <li><a href="#">Arrow 0.4.4 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2013, Chris Smith.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.4.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

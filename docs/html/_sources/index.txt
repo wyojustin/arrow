@@ -2,6 +2,9 @@
 Arrow:  better dates and times for Python
 =========================================
 
+.. contents::
+    :local:
+
 -----
 What?
 -----
@@ -327,9 +330,6 @@ Or just iterate over a range of time:
     <Arrow [2013-05-05T14:30:00+00:00]>
     <Arrow [2013-05-05T15:30:00+00:00]>
     <Arrow [2013-05-05T16:30:00+00:00]>
-
-.. toctree::
-   :maxdepth: 2
 
 Factories
 =========
