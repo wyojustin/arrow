@@ -1,4 +1,4 @@
-Arrow: Better dates & times for Python
+Arrow: Better dates & times for Python2.6
 ======================================
 
 .. start-inclusion-marker-do-not-remove
