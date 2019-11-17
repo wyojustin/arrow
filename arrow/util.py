@@ -4,9 +4,8 @@ from __future__ import absolute_import
 import datetime
 
 
-def total_seconds(td):  # pragma: no cover
-    return td.total_seconds()
-
+def total_seconds(td):
+    return (td.microseconds + (td.seconds + td.days * 24 * 3600.) * 10.**6) / 10.**6 
 
 def is_timestamp(value):
     """Check if value is a valid timestamp."""
