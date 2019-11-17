@@ -12,8 +12,9 @@ from arrow.constants import MAX_TIMESTAMP, MAX_TIMESTAMP_MS, MAX_TIMESTAMP_US
 try:
     from functools import lru_cache
 except ImportError:  # pragma: no cover
-    from backports.functools_lru_cache import lru_cache  # pragma: no cover
-
+    # from backports.functools_lru_cache import lru_cache  # pragma: no cover
+    def lru_cashe(*args, **kw):
+        pass
 
 class ParserError(ValueError):
     pass
@@ -120,7 +121,7 @@ class DateTimeParser(object):
         num_spaces = datetime_string.count(" ")
         if has_space_divider and num_spaces != 1 or has_t_divider and num_spaces > 0:
             raise ParserError(
-                "Expected an ISO 8601-like string, but was given '{}'. Try passing in a format string to resolve this.".format(
+                "Expected an ISO 8601-like string, but was given '{0}'. Try passing in a format string to resolve this.".format(
                     datetime_string
                 )
             )
@@ -156,7 +157,7 @@ class DateTimeParser(object):
             else:
                 date_string, time_string = datetime_string.split("T", 1)
 
-            time_parts = re.split(r"[\+\-Z]", time_string, 1, re.IGNORECASE)
+            time_parts = re.compile(r"[\+\-Z]", flags=re.IGNORECASE).split(time_string)
 
             time_components = self._TIME_RE.match(time_parts[0])
 
@@ -199,14 +200,16 @@ class DateTimeParser(object):
                 time_string = "HH"
 
             if has_space_divider:
-                formats = ["{} {}".format(f, time_string) for f in formats]
+                formats = [ "%s %s" % (f, time_string) for f in formats]
             else:
-                formats = ["{}T{}".format(f, time_string) for f in formats]
+                formats = ["%sT%s" % (f, time_string) for f in formats]
+                # formats = ["{}T{}".format(f, time_string) for f in formats]
 
         if has_time and has_tz:
             # Add "Z" or "ZZ" to the format strings to indicate to
             # _parse_token() that a timezone needs to be parsed
-            formats = ["{}{}".format(f, tz_format) for f in formats]
+            formats = ["%s%s" % (f, tz_format) for f in formats]
+            # formats = ["{0}{1}".format(f, tz_format) for f in formats]
 
         return self._parse_multiformat(datetime_string, formats)
 
@@ -220,7 +223,7 @@ class DateTimeParser(object):
         match = fmt_pattern_re.search(datetime_string)
         if match is None:
             raise ParserMatchError(
-                "Failed to match '{}' when parsing '{}'".format(fmt, datetime_string)
+                "Failed to match '{0}' when parsing '{1}'".format(fmt, datetime_string)
             )
 
         parts = {}
@@ -261,8 +264,8 @@ class DateTimeParser(object):
             try:
                 input_re = self._input_re_map[token]
             except KeyError:
-                raise ParserError("Unrecognized token '{}'".format(token))
-            input_pattern = "(?P<{}>{})".format(token, input_re.pattern)
+                raise ParserError("Unrecognized token '{0}'".format(token))
+            input_pattern = "(?P<{0}>{1})".format(token, input_re.pattern)
             tokens.append(token)
             # a pattern doesn't have the same length as the token
             # it replaces! We keep the difference in the offset variable.
@@ -295,7 +298,7 @@ class DateTimeParser(object):
         # Reference: https://stackoverflow.com/q/14232931/3820660
         starting_word_boundary = r"(?<![\S])"
         ending_word_boundary = r"(?![\S])"
-        bounded_fmt_pattern = r"{}{}{}".format(
+        bounded_fmt_pattern = r"{0}{1}{2}".format(
             starting_word_boundary, final_fmt_pattern, ending_word_boundary
         )
 
@@ -385,7 +388,7 @@ class DateTimeParser(object):
                     expanded_timestamp /= 1000000.0
                 else:
                     raise ValueError(
-                        "The specified timestamp '{}' is too large.".format(
+                        "The specified timestamp '{0}' is too large.".format(
                             expanded_timestamp
                         )
                     )
@@ -407,12 +410,12 @@ class DateTimeParser(object):
                     "Month component is not allowed with the DDD and DDDD tokens."
                 )
 
-            date_string = "{}-{}".format(year, day_of_year)
+            date_string = "{0}-{1}".format(year, day_of_year)
             try:
                 dt = datetime.strptime(date_string, "%Y-%j")
             except ValueError:
                 raise ParserError(
-                    "The provided day of year '{}' is invalid.".format(day_of_year)
+                    "The provided day of year '{0}' is invalid.".format(day_of_year)
                 )
 
             parts["year"] = dt.year
@@ -479,7 +482,7 @@ class DateTimeParser(object):
 
         if _datetime is None:
             raise ParserError(
-                "Could not match input '{}' to any of the following formats: {}".format(
+                "Could not match input '{0}' to any of the following formats: {1}".format(
                     string, ", ".join(formats)
                 )
             )
@@ -489,7 +492,7 @@ class DateTimeParser(object):
     # generates a capture group of choices separated by an OR operator
     @staticmethod
     def _generate_choice_re(choices, flags=0):
-        return re.compile(r"({})".format("|".join(choices)), flags=flags)
+        return re.compile(r"(%s)" % "|".join(choices), flags=flags)
 
 
 class TzinfoParser(object):
@@ -526,7 +529,7 @@ class TzinfoParser(object):
 
         if tzinfo is None:
             raise ParserError(
-                'Could not parse timezone expression "{}"'.format(tzinfo_string)
+                'Could not parse timezone expression "{0}"'.format(tzinfo_string)
             )
 
         return tzinfo
